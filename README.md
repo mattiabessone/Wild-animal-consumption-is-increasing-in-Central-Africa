@@ -46,10 +46,13 @@ Requests should be addressed to: mattia.bessone@gmail.com
 The code run in R (ver. 4.3.1) and require the R packages datawizard (ver. 1.0.2), rstan (ver. 2.32.7), rethinking (ver. 4.21), loo (ver. 2.5.1) and LaplacesDemon (ver. 16.1.6). A detailed description of the steps needed to install rstan can be found here : https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started. Installation steps for the rethinking pacakge are found here: https://github.com/rmcelreath/rethinking  
 ## 4.	Demo
 ### Models
-The code allows to run the models both on the full (163,896 datapoints) and a demo dataset (6,669 datapoints, i.e. 4% of the full dataset). Running the models on the demo dataset requires approximately 5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
+The code allows to run the models described in the manuscript on the full (163,896 datapoints) and a demo dataset (6,669 datapoints, i.e. 4% of the full dataset). Running the models on the demo dataset requires approximately 5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
 ## 5.	Instruction of use
 ### Models
-Open the script “Run_models.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1.
-The script “Run_models.R” provides different pipelines for 1) the full vs. the demo dataset and 2) each model.
-After having loaded the packages needed, select the model of interest, source the R file compiling the data for analysis (sub-folder “R_code”) and run the Stan model (subfolder “Stan_models).
-For each model the rstan package returns the results as stanfit object which can be used to inspect and extract results using functions like print (summary of posterior distribution for each estimated parameter).
+Processed data are needed to run this pipeline and can be requested according to the Data Avaialbility Stament.
+*Run models described in the manuscript.
+Open the script “Run_models.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1. The script “Run_models.R” provides different pipelines for 1) the full vs. the demo dataset and 2) each model.
+After having loaded the packages needed, select the model of interest, source the R file compiling the data for analysis (sub-folder “R_code”) and run the Stan model (subfolder “Stan_models). For each model the rstan package returns the results as stanfit object which can be used to inspect and extract results using functions like print (summary of posterior distribution for each estimated parameter).
+*Run model selection process
+Open the script “Run_model_selection.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1. For the submodels assessing a) consumption probability and b) frequency of consumption, the script “Run_models_selection.R” assess overfitting (pairs plot) and predictive power (ELPD) of the full model with and without a spatial autocorrealtion component (Gaussian process). For the submodel investigating c) qauntity of wildmeat consumed, the script only assess overfitting and predictive power of the full model (with continuous covariates) against a null model (with only random factrs).
+### Simulation
