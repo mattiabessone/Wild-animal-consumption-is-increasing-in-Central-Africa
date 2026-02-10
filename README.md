@@ -6,7 +6,7 @@ While human activities are driving widespread declines in wildlife populations, 
 ## 1.	Content
 This repository includes files needed to run the simulations and statistical models described in the manuscript.
 
-The repository includes 33 files organised in 2 folders and 4 subfolders (Table 1).
+The repository includes 34 files organised in 2 folders (pipelines) and 4 subfolders (Table 1).
 
 *Table 1. Folder structure and description of files needed to reproduce the results presented in the manuscript*
 
@@ -30,6 +30,7 @@ Folder name| Subfolder name | File name | Description |
 |Models|Stan_models|check_Gamma.stan|Bayesian model assessing quantity consumed|
 |Simulation|~            |Run_simulation.R|R code to run simulation |
 |Simulation|R_code|sim_consumption.R|R code simulating data based on parameters specified in "Run_simulation.R" |
+|Simulation|R_code|make_vector_fun.R|Custom function to vectorize matrices|
 |Simulation|R_code|run_simulation_coverage_1.T|R code generating 100 databases with sampling coverage = 5%|
 |Simulation|R_code|run_simulation_coverage_2.T|R code generating 100 databases with sampling coverage = 10%|
 |Simulation|R_code|run_simulation_coverage_3.T|R code generating 100 databases with sampling coverage = 15%|
@@ -42,10 +43,12 @@ Folder name| Subfolder name | File name | Description |
 Wild meat consumption data were extracted from different published and unpublished sources. Due to the sensitive nature of the data (including illegal activities, such as the consumption of protected wildlife species), unprocessed datasets are available with restrictions through the WILDMEAT Data Portal (https://explorer.wildmeat.org/). Each dataset is available under different data sharing conditions through a Data User Agreement, which gives data users control over the distribution and use of their data. Requests to access the full, processed dataset used for analysis will be considered following permissions from original data providers.
 Requests should be addressed to: mattia.bessone@gmail.com
 ## 3.	System requirements 
-The models run in R (ver. 4.3.1) and require the R packages datawizard (ver. 1.0.2) and rstan (ver. 2.32.7). A detailed description of the steps needed to install rstan can be found here : https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started. Installation might require up to 15 minutes. 
-## 4.	Demo (Models)
+The code run in R (ver. 4.3.1) and require the R packages datawizard (ver. 1.0.2), rstan (ver. 2.32.7), rethinking (ver. 4.21), loo (ver. 2.5.1) and LaplacesDemon (ver. 16.1.6). A detailed description of the steps needed to install rstan can be found here : https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started. Installation steps for the rethinking pacakge are found here: https://github.com/rmcelreath/rethinking  
+## 4.	Demo
+### Models
 The code allows to run the models both on the full (163,896 datapoints) and a demo dataset (6,669 datapoints, i.e. 4% of the full dataset). Running the models on the demo dataset requires approximately 5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
-## 5.	Instruction of use (Models)
+## 5.	Instruction of use
+### Models
 Open the script “Run_models.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1.
 The script “Run_models.R” provides different pipelines for 1) the full vs. the demo dataset and 2) each model.
 After having loaded the packages needed, select the model of interest, source the R file compiling the data for analysis (sub-folder “R_code”) and run the Stan model (subfolder “Stan_models).
