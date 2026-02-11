@@ -50,7 +50,7 @@ Requests should be addressed to: mattia.bessone@gmail.com
 The code run in R (ver. 4.3.1) and require the R packages datawizard (ver. 1.0.2), rstan (ver. 2.32.7), rethinking (ver. 4.21), loo (ver. 2.5.1) and LaplacesDemon (ver. 16.1.6). A detailed description of the steps needed to install rstan can be found here : https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started. Installation steps for the rethinking pacakge are found here: https://github.com/rmcelreath/rethinking  
 ## 4.	Demo
 ### Models
-The code allows to run the models described in the manuscript on the full (163,896 datapoints) and a demo dataset (1,671 datapoints, i.e. 1% of the full dataset). Running the models on the demo dataset requires approximately 5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
+The code allows to run the models described in the manuscript on the full (163,896 datapoints) and a demo dataset (1,671 datapoints, i.e. 1% of the full dataset). Running the models on the demo dataset requires approximately 1.5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
 ## 5.	Instruction of use
 ### Models
 The full, processed dataset is needed to run the full model pipeline. Requests will be considered according to the Data Avaialbility Statement.
