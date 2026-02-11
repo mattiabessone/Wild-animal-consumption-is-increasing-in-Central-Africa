@@ -6,7 +6,7 @@ While human activities are driving widespread declines in wildlife populations, 
 ## 1.	Content
 This repository includes files needed to run the simulations and statistical models described in the manuscript.
 
-The repository includes 34 files organised in 2 folders (pipelines) and 4 subfolders (Table 1).
+The repository includes 38 files organised in 2 folders (pipelines) and 5 subfolders (Table 1).
 
 *Table 1. Folder structure and description of files needed to reproduce the results presented in the manuscript*
 
@@ -14,6 +14,10 @@ Folder name| Subfolder name | File name | Description |
 | ----------- | ----------- | --------- | ----------- |
 |Models|~            |Run_models.R|R code to run all models |
 |Models|Data|Data_availability.md|Data availbility statement and instructions to obtain original data|
+|Models|Data|demo_daraset.csv|Demo dataset|
+|Models|Data|demo_distance_matrix.csv|Full distance matrix|
+|Models|Data|predictions.csv|Prediction data|
+|Models|Data|predictions_2LT.csv|Prediction data considering 2 location types|
 |Models|R_code|list_data_m1.R|R code listing data to run model used for final predictions|
 |Models|R_code|list_data_m2.R|R code listing data to run model investigating ED*LT interaction|
 |Models|R_code|list_data_m3.R|R code listing data to run model with 2 location types (rural vs. urban)|
@@ -46,15 +50,16 @@ Requests should be addressed to: mattia.bessone@gmail.com
 The code run in R (ver. 4.3.1) and require the R packages datawizard (ver. 1.0.2), rstan (ver. 2.32.7), rethinking (ver. 4.21), loo (ver. 2.5.1) and LaplacesDemon (ver. 16.1.6). A detailed description of the steps needed to install rstan can be found here : https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started. Installation steps for the rethinking pacakge are found here: https://github.com/rmcelreath/rethinking  
 ## 4.	Demo
 ### Models
-The code allows to run the models described in the manuscript on the full (163,896 datapoints) and a demo dataset (6,669 datapoints, i.e. 4% of the full dataset). Running the models on the demo dataset requires approximately 5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
+The code allows to run the models described in the manuscript on the full (163,896 datapoints) and a demo dataset (1,671 datapoints, i.e. 1% of the full dataset). Running the models on the demo dataset requires approximately 1.5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
 ## 5.	Instruction of use
 ### Models
-Processed data are needed to run this pipeline and can be requested according to the Data Avaialbility Stamteent.
+The full, processed dataset is needed to run the full model pipeline. Requests will be considered according to the Data Avaialbility Statement.
+A demo dataset is provided to test teh code functinality through the "reduced" pipeline provided in *Models/Run_models.R*.
 
 * Run models described in the manuscript.
 Open the script “Run_models.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1. The script “Run_models.R” provides different pipelines for 1) the full vs. the demo dataset and 2) each model.
 After having loaded the packages needed, select the model of interest, source the R file compiling the data for analysis (sub-folder “R_code”) and run the Stan model (subfolder “Stan_models). For each model the rstan package returns the results as stanfit object which can be used to inspect and extract results using functions like print (summary of posterior distribution for each estimated parameter).
 * Run model selection process
-Open the script “Run_model_selection.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1. For the submodels assessing a) consumption probability and b) frequency of consumption, the script “Run_models_selection.R” assess overfitting (pairs plot) and predictive power (ELPD) of the full model with and without a spatial autocorrealtion component (Gaussian process). For the submodel investigating c) qauntity of wildmeat consumed, the script only assess overfitting and predictive power of the full model (with continuous covariates) against a null model (with only random factrs).
+Open the script “Run_model_selection.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1. For the submodels assessing a) consumption probability and b) frequency of consumption, the script “Run_models_selection.R” assess overfitting (pairs plot) and predictive power (ELPD) of the full model with and without a spatial autocorrealtion component (Gaussian process). For the submodel investigating c) quantity of wildmeat consumed, the script only assesses overfitting and predictive power of the full model (with continuous covariates) against a null model (with only random factors).
 ### Simulation
 Open the script "Run_simulation.R" in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1. The script “Run_models.R” 1) sets up the real values of each parameter, 2) simulates n = 100 datasets for different survey covergaes (5, 10 and 15%) and 3) runs a simplified Bayesian model to retrieve the real parameters. For each parameter of interest the script returns a vector of n = 100 posterior distirbutions, which can then be used to assess the accuracy of the model in retrieving hte real parameters using plots or descriptive statistics.  
