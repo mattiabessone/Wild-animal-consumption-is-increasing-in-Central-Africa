@@ -6,7 +6,7 @@ While human activities are driving widespread declines in wildlife populations, 
 ## 1.	Content
 This repository includes files needed to run the simulations and statistical models described in the manuscript.
 
-The repository includes 38 files organised in 2 folders (pipelines) and 4 subfolders (Table 1).
+The repository includes 38 files organised in 2 folders (pipelines) and 5 subfolders (Table 1).
 
 *Table 1. Folder structure and description of files needed to reproduce the results presented in the manuscript*
 
