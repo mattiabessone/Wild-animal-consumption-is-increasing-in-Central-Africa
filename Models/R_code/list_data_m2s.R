@@ -1,6 +1,6 @@
 # Import again consumption data
-d <- read.csv("Data/consumption_data_test.csv") 
-d_mat<-read.csv("Data/distance_matrix_test.csv")/1000 # Distance matrix for autocorrelation in km
+d <- read.csv("Data/demo_dataset.csv") 
+d_mat<-read.csv("Data/demo_distance_matrix.csv.csv")/1000 # Distance matrix for autocorrelation in km
 d_pred<-read.csv("Data/predictions.csv") # Prediction data (874 cells)
 
 # Define 3 study types: 1="short-recall",2="long-recall",3="cooking-pot"

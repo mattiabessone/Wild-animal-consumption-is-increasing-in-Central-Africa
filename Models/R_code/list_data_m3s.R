@@ -1,6 +1,6 @@
 # Import again consumption data
-d <- read.csv("Data/consumption_data_test.csv") 
-d_mat<-read.csv("Data/distance_matrix_test.csv")/1000 # Distance matrix for autocorrelation in km
+d <- read.csv("Data/demo_dataset.csv") 
+d_mat<-read.csv("Data/demo_distance_matrix.csv")/1000 # Distance matrix for autocorrelation in km
 d_pred<-read.csv("Data/predictions_2LT.csv") # Prediction data (874 cells)
 
 # Define 2 location type levels: 1="rural", 2="urban"

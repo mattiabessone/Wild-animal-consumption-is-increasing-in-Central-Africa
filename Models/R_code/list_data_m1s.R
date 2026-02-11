@@ -1,6 +1,6 @@
 # Import data
-d <- read.csv("Data/consumption_data_test.csv") # Data
-d_mat<-read.csv("Data/distance_matrix_test.csv")/1000 # Distance matrix for autocorrelation in km
+d <- read.csv("Data/demo_dataset.csv") # Data
+d_mat<-read.csv("Data/demo_distance_matrix.csv")/1000 # Distance matrix for autocorrelation in km
 d_pred<-read.csv("Data/predictions.csv") # Prediction data (874 cells)
 # Define 3 education levels: 1="<secondary",2=">primary",3="unknown"
 d$education<-ifelse(d$education<3,1,ifelse(d$education>6,3,2))
@@ -67,3 +67,4 @@ data<-list(N_studies=N_studies,N_sites=N_sites,N_households=N_households,N_recal
            ,AME=d$num_ame,AME_missidx=AME_missidx,mean_AME=mean_AME,mdays=d_f$mdays,days=d$days,distance_matrix=d_mat
            ,N_scenarios=N_scenarios,N_sites_pred=N_sites_pred,HPD_pred=HPD_pred,REM_pred=REM_pred,HDI_pred=HDI_pred,FCI_pred=FCI_pred
            ,ED_pred=ED_pred,LT_pred=LT_pred,AME_pred=AME_pred)
+
