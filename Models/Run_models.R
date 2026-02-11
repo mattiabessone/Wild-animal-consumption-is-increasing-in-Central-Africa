@@ -1,4 +1,4 @@
-# Bessone et al. (2025) - Magnitude and Magnitude and trends of wild animal consumption across Central Africa #
+# Bessone et al. (2025) - Wild animal consumption is increasing across Central Africa #
 
 #### 1) Run full models described in the manuscript ####
 # Load packages

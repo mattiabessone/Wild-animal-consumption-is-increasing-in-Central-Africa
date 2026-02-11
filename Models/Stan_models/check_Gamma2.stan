@@ -51,12 +51,8 @@ parameters {
   //linear model of consumption quantities, mu
   real c0[N_studies];                          // intercept
   real c1;                                        // spatial autocorrelation
-  real c2;                              // slope - HPD
-  real c3;                   // random factor, by education level
-  real c4;
-  real c5;
-  real c6[N_education_levels];
-  real c7[N_households];
+  real c2[N_education_levels];
+  real c3[N_households];
   
   real<lower=0> theta;                           // overdispersion parameter, gamma distribution
   real nu;                                       // AME imputation
@@ -74,7 +70,7 @@ transformed parameters{
   
   for (i in 1: N_recalls){                       // parameters are modelled with covariates
     
-    mu[i] = exp(c0[study[i]] + c1 * AME_merged[i] + c2 * HPD[i] + c3 * HDI[i] + c4 * accessibility[i] +  c5 * FCI[i] + c6[education[i]] + c7[hh[i]]);
+    mu[i] = exp(c0[study[i]] + c1 * AME_merged[i] + c2[education[i]] + c3[hh[i]]);
   
   }
    
@@ -85,12 +81,8 @@ model {
  // Priors
  c0 ~ normal(0,5);
  c1 ~ normal(0,0.5);
- c2 ~ normal(0,0.5);
- c3 ~ normal(0,0.5);
- c4 ~ normal(0,0.5);
- c5 ~ normal(0,0.5);
- c6 ~ normal(0,5);
- c7 ~ normal(0,5);
+ c2 ~ normal(0,5);
+ c3 ~ normal(0,5);
  
  theta ~ exponential(1);
  nu ~ normal(6,1.5);

@@ -19,7 +19,6 @@ data {
   vector[N_households] accessibility;
   vector[N_households] FCI;
   int education[N_households];                    // household data - consumption yes/no
-  int year[N_households];
   int<lower=-1> mdays[N_households] ;
   matrix[N_sites,N_sites] distance_matrix;
 

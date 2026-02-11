@@ -25,9 +25,7 @@ data {
   int<lower=0> N_households;                     // number of households (hh)
   int<lower=0> N_recalls;                        // number of recalls (can be more than 1/hh)
   int<lower=0> N_education_levels;                // household data - number of education levels - random factor
-  int<lower=0> N_ethnicity;                      // household data - number of ethnicity types - random factor
-  int<lower=0> N_years;
- 
+  
 ///// Data
   vector[N_households] frequency;                   // household data - frequency of consumption
   
