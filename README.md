@@ -6,7 +6,7 @@ While human activities are driving widespread declines in wildlife populations, 
 ## 1.	Content
 This repository includes files needed to run the simulations and statistical models described in the manuscript.
 
-The repository includes 34 files organised in 2 folders (pipelines) and 4 subfolders (Table 1).
+The repository includes 38 files organised in 2 folders (pipelines) and 4 subfolders (Table 1).
 
 *Table 1. Folder structure and description of files needed to reproduce the results presented in the manuscript*
 
@@ -14,6 +14,10 @@ Folder name| Subfolder name | File name | Description |
 | ----------- | ----------- | --------- | ----------- |
 |Models|~            |Run_models.R|R code to run all models |
 |Models|Data|Data_availability.md|Data availbility statement and instructions to obtain original data|
+|Models|Data|demo_daraset.csv|Demo dataset|
+|Models|Data|demo_distance_matrix.csv|Full distance matrix|
+|Models|Data|predictions.csv|Prediction data|
+|Models|Data|predictions_2LT.csv|Prediction data considering 2 location types|
 |Models|R_code|list_data_m1.R|R code listing data to run model used for final predictions|
 |Models|R_code|list_data_m2.R|R code listing data to run model investigating ED*LT interaction|
 |Models|R_code|list_data_m3.R|R code listing data to run model with 2 location types (rural vs. urban)|
@@ -46,10 +50,11 @@ Requests should be addressed to: mattia.bessone@gmail.com
 The code run in R (ver. 4.3.1) and require the R packages datawizard (ver. 1.0.2), rstan (ver. 2.32.7), rethinking (ver. 4.21), loo (ver. 2.5.1) and LaplacesDemon (ver. 16.1.6). A detailed description of the steps needed to install rstan can be found here : https://github.com/stan-dev/rstan/wiki/RStan-Getting-Started. Installation steps for the rethinking pacakge are found here: https://github.com/rmcelreath/rethinking  
 ## 4.	Demo
 ### Models
-The code allows to run the models described in the manuscript on the full (163,896 datapoints) and a demo dataset (6,669 datapoints, i.e. 4% of the full dataset). Running the models on the demo dataset requires approximately 5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
+The code allows to run the models described in the manuscript on the full (163,896 datapoints) and a demo dataset (1,671 datapoints, i.e. 1% of the full dataset). Running the models on the demo dataset requires approximately 5 hours to complete on a “normal” laptop. The full model requires approximately 7 days to run on a super-computer.
 ## 5.	Instruction of use
 ### Models
-Processed data are needed to run this pipeline and can be requested according to the Data Avaialbility Stamteent.
+The full, processed dataset is needed to run the full model pipeline. Requests will be considered according to the Data Avaialbility Statement.
+A demo dataset is provided to test teh code functinality through the "reduced" pipeline provided in *Models/Run_models.R*.
 
 * Run models described in the manuscript.
 Open the script “Run_models.R” in R, making sure to 1) set up the correct working directory 2) replicate the same folder structure provided in Table 1. The script “Run_models.R” provides different pipelines for 1) the full vs. the demo dataset and 2) each model.
