@@ -14,7 +14,7 @@ Folder name| Subfolder name | File name | Description |
 | ----------- | ----------- | --------- | ----------- |
 |Models|~            |Run_models.R|R code to run all models |
 |Models|Data|Data_availability.md|Data availbility statement and instructions to obtain original data|
-|Models|Data|demo_daraset.csv|Demo dataset|
+|Models|Data|demo_dataset.csv|Demo dataset|
 |Models|Data|demo_distance_matrix.csv|Full distance matrix|
 |Models|Data|predictions.csv|Prediction data|
 |Models|Data|predictions_2LT.csv|Prediction data considering 2 location types|
